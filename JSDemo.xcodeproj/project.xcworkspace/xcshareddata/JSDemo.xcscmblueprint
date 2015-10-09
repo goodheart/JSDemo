@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4286A09CD74585D2C109CAA9472D0858A33A2A74",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4286A09CD74585D2C109CAA9472D0858A33A2A74" : 0,
+    "A4D7DB7936D18F8797892B0805F0623344CBAEBE" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0440F6D7-001A-4E43-9252-2FBB314276F9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4286A09CD74585D2C109CAA9472D0858A33A2A74" : "JSDemo\/",
+    "A4D7DB7936D18F8797892B0805F0623344CBAEBE" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "JSDemo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "JSDemo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/goodheart\/JSDemo",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4286A09CD74585D2C109CAA9472D0858A33A2A74"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:goodheart\/firstDemo123.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A4D7DB7936D18F8797892B0805F0623344CBAEBE"
+    }
+  ]
+}
