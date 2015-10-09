@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="">
+    <head>
+        <meta charset="UTF-8" />
+        <title>js调用APP接口测试</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+            <meta http-equiv="Cache-Control" content="max-age=0">
+                <meta name="apple-touch-fullscreen" content="yes">
+                    
+    </head>
+    <body>
+        <div>
+            <p style="font-weight:bold;">历代记调用前缀 window.findhistory.</p>
+            <div>
+            <a href="javascript:alert(window.web.getUserNickName());">获取原生用户名</a>
+            </div>
+            <div>
+                <p>goto</p>
+                <!--
+                 'http://h5.snh48.com/game/component/index.html')
+                 -->
+                <a href="javascript:window.web.gotoDetail('http://h5.snh48.com/game/component/index.html');">gotoDetail111</a>
+            </div>
+            <div>
+                <p>backHome()</p>
+                <a  href="javascript:isExitsFunction('window.findhistory.backHome');">测试按钮</a>
+            </div>
+            <div>
+                <p>openUserInfo()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.openUserInfo');">测试按钮</a>
+            </div>
+            <div>
+                <p>ShareWithParameter()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.ShareWithParameter');">测试按钮</a>
+            </div>
+            <div>
+                <p>PlayVideo()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.PlayVideo');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUser_Id()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.getLoginUser_Id');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUserNickName()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.getLoginUserNickName');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUserPic()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.getLoginUserPic');">测试按钮</a>
+            </div>
+            <div>
+                <p>isBindPhone()</p>
+                <a href="javascript:isExitsFunction('window.findhistory.isBindPhone');">测试按钮</a>
+            </div>
+        </div>
+        <div>
+            <p style="font-weight:bold;">总选举调用前缀 window.pay.</p>
+            <div>
+                <p>backHome()</p>
+                <a href="javascript:isExitsFunction('window.pay.backHome');">测试按钮</a>
+            </div>
+            <div>
+                <p>scanCode()</p>
+                <a href="javascript:isExitsFunction('window.pay.scanCode');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUserId()</p>
+                <a href="javascript:isExitsFunction('window.pay.getLoginUserId');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUserNickName()</p>
+                <a href="javascript:isExitsFunction('window.pay.getLoginUserNickName');">测试按钮</a>
+            </div>
+            <div>
+                <p>getLoginUserPic()</p>
+                <a href="javascript:isExitsFunction('window.pay.getLoginUserPic');">测试按钮</a>
+            </div>
+            <div>
+                <p>isBindPhone()</p>
+                <a href="javascript:isExitsFunction('window.pay.isBindPhone');">测试按钮</a>
+            </div>
+            <div>
+                <p>getPhoneNum()</p>
+                <a href="javascript:isExitsFunction('window.pay.getPhoneNum');">测试按钮</a>
+            </div>
+            <div>
+                <p>Share()</p>
+                <a href="javascript:isExitsFunction('window.pay.Share');">测试按钮</a>
+            </div>
+            <div>
+                <p>PlayVideo()</p>
+                <a href="javascript:isExitsFunction('window.pay.PlayVideo');">测试按钮</a>
+            </div>
+            
+        </div>
+        <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            
+            
+            
+            //isExitsFunction("window.findhistory.saveImage")
+            
+            
+            
+            function isExitsFunction(funcName) {
+                try {
+                    if (typeof(eval(funcName)) == "function") {
+                        alert(funcName+">>>function is exits!")
+                        window.findhistory.testAlert(funcName+">>>function is exits!")
+                        return true;
+                    }else{
+                        window.findhistory.testAlert(">>>函数不存在")
+                        alert("函数不存在")
+                    }
+                } catch(e) {
+                    window.findhistory.testAlert("e>"+e)
+                    alert("e>"+e)
+                }
+                return false;
+            }
+        
+        $(function(){
+          
+          $.ajax({ 
+                 async: false, 
+                 url: "http://pocket.snh48.com/photo/page/getPocketUserInfo", 
+                 type: "POST", 
+                 dataType: 'jsonp', 
+                 jsonp: 'jsoncallback', 
+                 data: {userId:"54a94bde0cf254fef2e148e2",ran:Math.random()}, 
+                 timeout: 5000, 
+                 contentType: "application/json;utf-8", 
+                 success: function (result) { 
+                 console.log(result)
+                 }, 
+                 error: function (jqXHR, textStatus, errorThrown) { 
+                 // alert("error"); 
+                 } 
+                 })
+          })
+          
+            </script>
+        
+    </body>
+</html>
