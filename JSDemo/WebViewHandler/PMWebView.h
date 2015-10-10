@@ -32,4 +32,5 @@ typedef NS_ENUM(NSUInteger,PMWebViewFailType) {
 
 - (void)loadFromURL:(NSURL *)url;
 - (void)stopLoading;
+- (void)evaluateJavaScriptScript:(NSString *)script;
 @end

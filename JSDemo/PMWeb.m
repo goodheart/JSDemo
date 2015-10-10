@@ -20,4 +20,10 @@
     }
 }
 
+- (void)showLoginPhoneAlert {
+    if ([self.delegate respondsToSelector:@selector(showAlert)]) {
+        [self.delegate showAlert];
+    }
+}
+
 @end

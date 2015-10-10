@@ -29,6 +29,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)showAlert {
+    [self.webView evaluateJavaScriptScript:[NSString stringWithFormat:@"showName(%@)",@(arc4random() % 100000)]];
+}
+
 #pragma mark - PMWebViewConfigurationDelegate
 - (id<JSExport>)contextHandlerForWebView:(PMWebView *)webView {
     return self.web;

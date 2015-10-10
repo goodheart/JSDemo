@@ -13,6 +13,7 @@
 @protocol PMWebDelegate <NSObject>
 
 - (void)goBack;
+- (void)showAlert;
 
 @end
 

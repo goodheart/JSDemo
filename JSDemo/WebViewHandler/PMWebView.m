@@ -49,6 +49,10 @@
     [self.webView stopLoading];
 }
 
+- (void)evaluateJavaScriptScript:(NSString *)script {
+    [self.context evaluateScript:script];
+}
+
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     return YES;

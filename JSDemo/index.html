@@ -12,6 +12,9 @@
         <div>
             <p style="font-weight:bold;">历代记调用前缀 window.findhistory.</p>
             <div>
+                <a href="javascript:window.web.showLoginPhoneAlert();">OC调用JS</a>
+            </div>
+            <div>
                 <a href="javascript:window.web.backHome();">返回</a>
             </div>
             <div>
@@ -104,7 +107,9 @@
             
             //isExitsFunction("window.findhistory.saveImage")
             
-            
+            function showName(name) {
+                alert(name);
+            }
             
             function isExitsFunction(funcName) {
                 try {
