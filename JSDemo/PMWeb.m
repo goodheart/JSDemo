@@ -10,8 +10,14 @@
 
 @implementation PMWeb
 
-- (NSString *)getUserNickName {
-    return @"哈哈哈";
+- (NSString *)getLoginUserNickName {
+    return @"呵呵";
+}
+
+- (void)backHome {
+    if ([self.delegate respondsToSelector:@selector(goBack)]) {
+        [self.delegate goBack];
+    }
 }
 
 @end

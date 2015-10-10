@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+
+@protocol PMWebDelegate <NSObject>
+
+- (void)goBack;
+
+@end
+
 @protocol PMWebExport <JSExport>
 
 - (void)backHome; //返回应用的上一个页面
@@ -26,4 +33,11 @@
 
 @interface PMWeb : NSObject<PMWebExport>
 
+@property (nonatomic,weak) id<PMWebDelegate> delegate;
+
+
 @end
+
+
+
+

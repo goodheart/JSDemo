@@ -7,14 +7,9 @@
 //
 
 #import "PMWebViewController.h"
-#import <JavaScriptCore/JavaScriptCore.h>
-@interface PMWebViewController ()<UIWebViewDelegate>
-/* Private Property */
+@interface PMWebViewController ()
+@property (nonatomic,strong,readwrite) PMWebView * webView;
 @property (nonatomic,copy) NSURL * destinationURL;
-@property (nonatomic,strong) UIWebView * webView;
-@property (nonatomic,strong) JSContext * context;
-@property (nonatomic,copy) NSString * contextKey;
-@property (nonatomic,strong) id<JSExport> contextHandler;
 @end
 
 @interface PMWebViewController ()
@@ -22,121 +17,43 @@
 @end
 
 @implementation PMWebViewController
-#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.webView = [[PMWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.webView.configurationDelegate = self;
     [self.view addSubview:self.webView];
-    
-    NSURLRequest * request = [NSURLRequest requestWithURL:self.destinationURL];
-    [self.webView loadRequest:request];
-}
-
-- (void)dealloc {
-    [self.webView stopLoading];
+    if (nil != self.destinationURL) {
+        [self.webView loadFromURL:self.destinationURL];
+    }
 }
 
 #pragma mark - Public Method
 + (id)webViewControllerWithDestinationURL:(NSURL *)destinationURL {
     PMWebViewController * webViewController = [[[self class] alloc] init];
-    
     webViewController.destinationURL = destinationURL;
-    
     return webViewController;
 }
 
-#pragma mark - UIWebViewDelegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    return YES;
+#pragma mark - PMWebViewConfigurationDelegate
+- (NSString *)contextKeyForWebView:(PMWebView *)webView {
+    return nil;
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.context[self.contextKey] = self.contextHandler;
+- (id<JSExport>)contextHandlerForWebView:(PMWebView *)webView {
+    return nil;
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    if ([self.configurationDelegate respondsToSelector:@selector(webViewController:failWithType:)]) {
-        [self.configurationDelegate webViewController:self
-                                         failWithType:PMWebViewControllerFailTypeWebViewLoadFailed];
-    }
+- (void)webView:(PMWebView *)webView failWithType:(PMWebViewFailType)failType {
+    
 }
 
-#pragma mark - Lazy Initlization
-- (UIWebView *)webView {
-    if (_webView) {
-        return _webView;
-    }
-    _webView = [[UIWebView alloc] init];
-    
-    CGRect webViewFrame = self.view.bounds;//默认View页面大小
-    
-    if ([self.configurationDelegate respondsToSelector:@selector(webViewContoller:frameForWebView:)]) {
-       CGRect frame = [self.configurationDelegate webViewContoller:self
-                                     frameForWebView:_webView];
-        if (!CGRectIsEmpty(frame)) {//如果不是CGRectZero,则进行设置
-            webViewFrame = frame;
-        }
-    }
-    
-    _webView.frame = webViewFrame;
-    _webView.delegate = self;
-    
-    return _webView;
-}
 
-- (NSString *)contextKey {
-    if (_contextKey) {
-        return _contextKey;
-    }
-    
-    if ([self.configurationDelegate respondsToSelector:@selector(webViewController:contextKeyForWebView:)]) {
-        _contextKey = [self.configurationDelegate webViewController:self
-                                 contextKeyForWebView:self.webView];
-    }
 
-    if (nil == _contextKey) {
-        if ([self.configurationDelegate respondsToSelector:@selector(webViewController:failWithType:)]) {
-            [self.configurationDelegate webViewController:self
-                                             failWithType:PMWebViewControllerFailTypeNoContextKey];
-        }
-    }
-    
-    return _contextKey;
-}
 
-- (id<JSExport>)contextHandler {
-    if (_contextHandler) {
-        return _contextHandler;
-    }
-    
-    if ([self.configurationDelegate respondsToSelector:@selector(webViewController:contextHandlerForWebView:)]) {
-        _contextHandler = [self.configurationDelegate webViewController:self
-                             contextHandlerForWebView:self.webView];
-    }
-    
-    if (nil == _contextHandler) {
-        if ([self.configurationDelegate respondsToSelector:@selector(webViewController:failWithType:)]) {
-            [self.configurationDelegate webViewController:self
-                                             failWithType:PMWebViewControllerFailTypeNoContextHandler];
-        }
-    }
-    
-    return _contextHandler;
-}
 
-- (JSContext *)context {
-    if (_context) {
-        return _context;
-    }
-    
-    _context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    
-    [_context setExceptionHandler:^(JSContext * context, JSValue * value) {
-        NSLog(@"faild");
-    }];
-    
-    return _context;
-}
+
 
 @end
 

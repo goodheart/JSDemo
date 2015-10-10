@@ -7,10 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "PMWebViewController.h"
-#import "PMWeb.h"
-
-@interface ViewController ()<PMWebViewControllerConfigurationDelegate>
+#import "WebViewController.h"
+@interface ViewController ()
 
 @end
 
@@ -23,28 +21,15 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSURL * url = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html"];
-    PMWebViewController * webViewController = [PMWebViewController webViewControllerWithDestinationURL:url];
-    webViewController.configurationDelegate = self;
+    WebViewController * webViewController = [WebViewController webViewControllerWithDestinationURL:url];
     [self.navigationController pushViewController:webViewController
                                          animated:YES];
+    
+//    [self presentViewController:webViewController animated:YES completion:nil];
+    
 }
 
-#pragma mark - PMWebViewControllerConfigurationDelegate
-- (CGRect)webViewContoller:(PMWebViewController *)webViewController frameForWebView:(UIWebView *)webView {
-    return CGRectZero;
-}
 
-- (NSString *)webViewController:(PMWebViewController *)webViewController contextKeyForWebView:(UIWebView *)webView {
-    return @"web";
-}
-
-- (void)webViewController:(PMWebViewController *)webViewController failWithType:(PMWebViewControllerFailType)failType {
-    NSLog(@"%ld",failType);
-}
-
-- (id<JSExport>)webViewController:(PMWebViewController *)webViewController contextHandlerForWebView:(UIWebView *)webView {
-    return [[PMWeb alloc] init];
-}
 
 @end
 

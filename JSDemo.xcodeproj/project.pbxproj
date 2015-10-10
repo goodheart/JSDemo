@@ -16,6 +16,8 @@
 		362C003E1BC8288D00107669 /* PMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362C003D1BC8288D00107669 /* PMWebViewController.m */; settings = {ASSET_TAGS = (); }; };
 		362C00411BC830C700107669 /* PMWeb.m in Sources */ = {isa = PBXBuildFile; fileRef = 362C00401BC830C700107669 /* PMWeb.m */; settings = {ASSET_TAGS = (); }; };
 		362C00431BC8316D00107669 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 362C00421BC8316D00107669 /* index.html */; settings = {ASSET_TAGS = (); }; };
+		36A7BD821BC8A90200DB677C /* PMWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A7BD811BC8A90200DB677C /* PMWebView.m */; settings = {ASSET_TAGS = (); }; };
+		36A7BD881BC8B12F00DB677C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A7BD871BC8B12F00DB677C /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		362C003F1BC830C700107669 /* PMWeb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWeb.h; sourceTree = "<group>"; };
 		362C00401BC830C700107669 /* PMWeb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWeb.m; sourceTree = "<group>"; };
 		362C00421BC8316D00107669 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		36A7BD801BC8A90200DB677C /* PMWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWebView.h; sourceTree = "<group>"; };
+		36A7BD811BC8A90200DB677C /* PMWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWebView.m; sourceTree = "<group>"; };
+		36A7BD861BC8B12F00DB677C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		36A7BD871BC8B12F00DB677C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,8 @@
 				362C00281BC8281400107669 /* AppDelegate.m */,
 				362C002A1BC8281400107669 /* ViewController.h */,
 				362C002B1BC8281400107669 /* ViewController.m */,
+				36A7BD861BC8B12F00DB677C /* WebViewController.h */,
+				36A7BD871BC8B12F00DB677C /* WebViewController.m */,
 				362C003F1BC830C700107669 /* PMWeb.h */,
 				362C00401BC830C700107669 /* PMWeb.m */,
 				362C002D1BC8281400107669 /* Main.storyboard */,
@@ -94,6 +102,8 @@
 		362C003B1BC8287E00107669 /* WebViewHandler */ = {
 			isa = PBXGroup;
 			children = (
+				36A7BD801BC8A90200DB677C /* PMWebView.h */,
+				36A7BD811BC8A90200DB677C /* PMWebView.m */,
 				362C003C1BC8288D00107669 /* PMWebViewController.h */,
 				362C003D1BC8288D00107669 /* PMWebViewController.m */,
 			);
@@ -172,9 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				362C002C1BC8281400107669 /* ViewController.m in Sources */,
+				36A7BD881BC8B12F00DB677C /* WebViewController.m in Sources */,
 				362C00291BC8281400107669 /* AppDelegate.m in Sources */,
 				362C003E1BC8288D00107669 /* PMWebViewController.m in Sources */,
 				362C00411BC830C700107669 /* PMWeb.m in Sources */,
+				36A7BD821BC8A90200DB677C /* PMWebView.m in Sources */,
 				362C00261BC8281400107669 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +334,7 @@
 				362C003A1BC8281400107669 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
